@@ -31,14 +31,14 @@ class ExcelController extends Controller
 
 	public function import(Request $request) {
 		$this->validate($request, array(
-      'upload_excel' => 'required'
+      	'upload_excel' => 'required'
     ));
 
-		$this->collection = [];
+	$this->collection = [];
 
     if($request->hasFile('upload_excel')){
     	$extension = File::extension($request->file('upload_excel')->getClientOriginalName());
-      if (in_array($extension, $this->extension)) {
+      	if (in_array($extension, $this->extension)) {
 				$array = $this->excel->toArray(new BookingImport(), $request->file('upload_excel'));
 
 				if(is_array($array) && count($array) > 0) {

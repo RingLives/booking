@@ -8,7 +8,7 @@
         <a href="{{url('/admin')}}" class="logo" style="color: #fff;">
             {{-- <img src="{{asset('assets/img/logoazzara.svg')}}" alt="navbar brand" class="navbar-brand"> --}}
 
-            Admin Panel
+            {{ config('app.name', 'Admin') }}
         </a>
         <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
@@ -28,7 +28,7 @@
     <nav class="navbar navbar-header navbar-expand-lg">
         
         <div class="container-fluid">
-            <div class="collapse" id="search-nav">
+            {{-- <div class="collapse" id="search-nav">
                 <form class="navbar-left navbar-form nav-search mr-md-3">
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -39,14 +39,14 @@
                         <input type="text" placeholder="Search ..." class="form-control">
                     </div>
                 </form>
-            </div>
+            </div> --}}
             <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
                 <li class="nav-item toggle-nav-search hidden-caret">
                     <a class="nav-link" data-toggle="collapse" href="#search-nav" role="button" aria-expanded="false" aria-controls="search-nav">
                         <i class="fa fa-search"></i>
                     </a>
                 </li>
-                <li class="nav-item dropdown hidden-caret">
+                {{-- <li class="nav-item dropdown hidden-caret">
                     <a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-envelope"></i>
                     </a>
@@ -173,7 +173,7 @@
                             <a class="see-all" href="javascript:void(0);">See all notifications<i class="fa fa-angle-right"></i> </a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
                 <li class="nav-item dropdown hidden-caret">
                     <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                         <div class="avatar-sm">

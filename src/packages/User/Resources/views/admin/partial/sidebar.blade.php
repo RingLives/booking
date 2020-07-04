@@ -122,7 +122,7 @@
 
 
                 
-                <li class="nav-item">
+                {{--<li class="nav-item">
                     <a data-toggle="collapse" href="#report">
                         <i class="fas fa-layer-group"></i>
                         <p>Report</p>
@@ -161,7 +161,7 @@
                             @endif
                         </ul>
                     </div>
-                </li>             
+                </li>  --}}           
             </ul>
         </div>
     </div>

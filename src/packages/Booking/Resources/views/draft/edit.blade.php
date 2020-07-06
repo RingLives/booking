@@ -186,7 +186,7 @@
 								      	</tr>
 								    </thead>
 								    <tbody class="idclone" >
-								    	    	@if(isset($booking) && count($booking) > 0)
+								    	    	@if(isset($booking))
 								    	    		@foreach($booking->bookingDetails as $bookingDetails)
 								    			      	<tr class="tr_clone">
 								    			      		<input type="hidden" name="id[]" value="{{$bookingDetails->id}}" {{($bookingDetails->is_admin_aproved) ? "disabled" : ''}}>

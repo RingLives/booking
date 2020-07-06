@@ -89,7 +89,7 @@ class DraftController extends Controller
      * @param int $id
      * @return Response
      */
-	public function destroy() {
+	public function destroy($id) {
 		$booking = Booking::with('bookingDetails')->findOrFail($id);
 
 		if(count($booking->bookingDetails) > 0){

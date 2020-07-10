@@ -56,9 +56,12 @@
 									<td>{{$booking->created_at->format('d-m-Y')}}</td>
 									<td>{!! isset($booking->status)?$booking->status:'' !!}</td>
 									<td>
-										
-										<a class="btn btn-success" href="{{route('booking.draft.edit',$booking->id)}}"> Edit</a>
-										<a class="btn btn-danger" href="{{route('booking.draft.destroy',$booking->id)}}">Delete</a>
+										{!! button('btn-primary', route('booking.draft.edit',$booking->id), 'fa fa-edit') !!}
+
+										{!! button('btn-danger', route('booking.draft.destroy',$booking->id), 'fa fa-trash') !!}
+
+										{{-- <a class="btn btn-success" href="{{route('booking.draft.edit',$booking->id)}}"> Edit</a> --}}
+										{{-- <a class="btn btn-danger" href="{{route('booking.draft.destroy',$booking->id)}}">Delete</a> --}}
 									</td>
 								</tr>
 							@endforeach

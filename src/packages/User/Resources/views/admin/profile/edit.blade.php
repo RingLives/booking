@@ -18,10 +18,7 @@
 				<a href="#">User Profile</a>
 			</li>
 		</ul>
-	</div>
-	
-	@include('user::admin.include.success')
-	@include('user::admin.include.error')
+	</div>	
 
 		<div class="content">
 			<div class="page-inner">
@@ -29,6 +26,8 @@
 				<div class="row">
 					<div class="col-md-2"></div>
 					<div class="col-md-8">
+						@include('user::admin.include.success')
+						@include('user::admin.include.error')
 						<form action="{{Route('admin.profile.update',auth_user()->id)}}" method="post">
 							{{csrf_field()}}
 							<div class="card card-with-nav">
@@ -44,7 +43,7 @@
 										<div class="col-md-6">
 											<div class="form-group form-group-default">
 												<label>Total Balance</label>
-												<input type="text" class="form-control" name="full_name" placeholder="Name" value="{{auth_user()->Balance}}" readonly="">
+												<input type="text" class="form-control" name="full_name" placeholder="Name" value="{{auth_user()->blance}}" readonly="">
 											</div>
 										</div>
 									</div>
@@ -109,7 +108,7 @@
 										</div>
 									</div>
 									<div class="text-right mt-3 mb-3">
-										<button class="btn btn-success">Save</button>
+										{!! update_button() !!}
 									</div>
 								</div>
 							</div>

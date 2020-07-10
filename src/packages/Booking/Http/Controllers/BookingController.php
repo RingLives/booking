@@ -69,31 +69,40 @@ class BookingController extends Controller
         // print_r("<pre>");
         // print_r($request->all());die();
 
-        $this->validate($request,[
-            'customer_name' => 'required',
-            'date' => 'required',
-            'payment' => 'required',
-            'bsd_bill' => 'required',
-            'payment_reference' => 'required',
-            'weight_charge' => 'required',
-            'organic_cost' => 'required',
-            'orgnaic_shipping_cost' => 'required',
-            'order_reference' => 'required',
-            'conv_rate' => 'required',
-            'due' => 'required',
-            'currency_profit' => 'required',
-            'shipping_profit' => 'required',
-            'total_profit' => 'required',
-            'remarks' => 'required',
+        if(auth_user()->type == 'customer') {
+            $this->validate($request,[
+                'date' => 'required',
+                'payment' => 'required',
+                'payment_reference' => 'required',
+                ]);
+        }else{
+            $this->validate($request,[
+                'customer_name' => 'required',
+                'date' => 'required',
+                'payment' => 'required',
+                'bsd_bill' => 'required',
+                'payment_reference' => 'required',
+                'weight_charge' => 'required',
+                'organic_cost' => 'required',
+                'orgnaic_shipping_cost' => 'required',
+                'order_reference' => 'required',
+                'conv_rate' => 'required',
+                'due' => 'required',
+                'currency_profit' => 'required',
+                'shipping_profit' => 'required',
+                'total_profit' => 'required',
+                'remarks' => 'required',
 
-            'name.*' => 'required',
-            'link.*' => 'required',
-            'price.*' => 'required|integer',
-            'offer.*' => 'required',
-            'quantity.*' => 'required|integer',
-            'note.*' => 'required',
-            'status.*' => 'required',
-        ]);
+                'name.*' => 'required',
+                'link.*' => 'required',
+                'price.*' => 'required|integer',
+                'offer.*' => 'required',
+                'quantity.*' => 'required|integer',
+                'note.*' => 'required',
+                'status.*' => 'required',
+            ]);
+        }
+        
 
         $booking = new Booking();
         $booking->is_draft = ($request->get('action') == "save") ? 1 : 0;

@@ -42,6 +42,10 @@ class User extends EloquentUser implements AuthenticatableContract
         });
     }
     
+    // public function role()
+    // {
+    //     // $this->hasOne()
+    // }
     /**
      * Scope a query to only include without users.
      *

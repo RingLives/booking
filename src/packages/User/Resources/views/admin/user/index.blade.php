@@ -30,7 +30,7 @@
 			<div class="card-title" style="float: left; width: 50%;">Shipment</div>
 			<div class="card-title" style="float: right; width: 50%;">
 				<div style="float: right;">
-					<a href="{{route("admin.user.create")}}"><i class="flaticon-settings"></i></a>
+					<a href="{{route("admin.user.create")}}"><i class="fas fa-plus"></i></a>
 				</div>
 			</div>
 		</div>
@@ -61,7 +61,8 @@
 									<td>{!!$user->status!!}</td>
 
 									<td>
-										<a class="btn btn-primary" href="{{route('admin.user.update',$user->id)}}"> Edit</a>
+										{!! button('btn-primary', route('admin.user.update',$user->id), "fa fa-edit") !!}
+										{{-- <a class="btn btn-primary" href="{{route('admin.user.update',$user->id)}}"> Edit</a> --}}
 									</td>
 								</tr>
 							@endforeach

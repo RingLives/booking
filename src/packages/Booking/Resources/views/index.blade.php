@@ -1,7 +1,7 @@
 @extends('user::admin.layouts.app')
 @section('content')
 	<div class="page-header">
-		<h4 class="page-title">Order</h4>
+		<h4 class="page-title">Orders</h4>
 		<ul class="breadcrumbs">
 			<li class="nav-home">
 				<a href="#">
@@ -18,7 +18,7 @@
 				<i class="flaticon-right-arrow"></i>
 			</li>
 			<li class="nav-item">
-				<a href="{{Route('booking.index')}}">Order</a>
+				<a href="{{Route('booking.index')}}">Orders</a>
 			</li>
 		</ul>
 	</div>
@@ -52,24 +52,30 @@
 							@foreach($bookings as $booking)
 								@if(isset($booking->bookingDetails))
 									@foreach($booking->bookingDetails as $bookingDetails)
-										@if(strtolower($bookingDetails->status) == 'complete')
+										{{-- @if(strtolower($bookingDetails->status) == 'complete') --}}
 											<tr>
 												<th scope="row">{{$i++}}</th>
 												<td>{{$booking->booking_id}}</td>
 												<td>{{$booking->created_at->format('d-m-Y')}}</td>
 												<td>{!! isset($booking->status)?$booking->status:'' !!}</td>
 												<td>
-													
-													<a class="btn btn-success" href="{{route('booking.view',$booking->id)}}"> View</a>
+													{!! button('btn-success', route('booking.view',$booking->id), "fa fa-eye") !!}
+
 													@if(auth_user()->type == 'customer')
-														<a class="btn btn-success" href="#" data-toggle="modal" data-target="#payment-modal"> Payment</a>
+
+														{{-- {!! button('btn-info', "#", null, 'Payment', 'data-toggle="modal" data-target="#payment-modal"',) !!} --}}
 													@endif
 
-													<a class="btn btn-danger" href="{{route('booking.destroy',$booking->id)}}">Delete</a>
+													@if(auth_user()->type == "admin")
+
+														{!! button('btn-primary', route('shipment.create',$booking->id), null, 'shipment') !!}
+													@endif
+
+													{!! button('btn-danger', route('booking.destroy',$booking->id), 'fa fa-trash') !!}
 												</td>
 											</tr>
-											@break
-										@endif
+											{{-- @break --}}
+										{{-- @endif --}}
 									@endforeach
 								@endif
 							@endforeach

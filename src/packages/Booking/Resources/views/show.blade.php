@@ -89,19 +89,19 @@
 									<div class="col-md-3">
 										<div class="form-group">
 											<label>Date</label>
-											<input type="date" name="date" class="form-control date" id="date" value="{{(isset($booking->date)? $booking->date : '')}}">
+											<input type="date" name="date" class="form-control date" id="date" readonly="" value="{{(isset($booking->date)? $booking->date : '')}}">
 										</div>
 									</div>
 									<div class="col-md-3">
 										<div class="form-group">
 											<label>Payment</label>
-											<input type="text" name="payment" class="form-control payment" id="payment" value="{{(isset($booking->payment)? $booking->payment : '')}}">
+											<input type="text" name="payment" class="form-control payment" readonly="" id="payment" value="{{(isset($booking->payment)? $booking->payment : '')}}">
 										</div>
 									</div>
 									<div class="col-md-3">
 										<div class="form-group">
 											<label for="email2">Payment Reference</label>
-											<input type="text" name="payment_reference" class="form-control payment_reference" id="payment_reference" value="{{(isset($booking->payment_reference)? $booking->payment_reference : '')}}">
+											<input type="text" name="payment_reference" class="form-control payment_reference" readonly="" id="payment_reference" value="{{(isset($booking->payment_reference)? $booking->payment_reference : '')}}">
 										</div>
 									</div>
 								@endif
@@ -214,7 +214,7 @@
 								    	@if(isset($booking->bookingDetails) & count($booking->bookingDetails) > 0)
 								    		@php($j = 1)
 								    		@foreach($booking->bookingDetails as $details)
-								    			@if(strtolower($details->status) == "complete")
+								    			{{-- @if(strtolower($details->status) == "complete") --}}
 									    			<tr class="{{$details->is_admin_aproved ? 'checked_class' :''}}">
 
 									    				@if(auth_user()->type == 'admin')
@@ -236,7 +236,7 @@
 									    				<td>{{$details->note}}</td>
 									    				<td>{!!$details->status!!}</td>
 									    			</tr>
-									    		@endif
+									    		{{-- @endif --}}
 								    		@endforeach
 								    	@endif							    	
 								    </tbody>

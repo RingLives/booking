@@ -303,9 +303,13 @@
 								</div>
 
 								<div class="form-group " style="float: right;">
-								  <button type="submit" value="save" name="action" class="btn btn-success" style="width: 200px; padding-top: 10px;">Save</button>
+								  {{-- <button type="submit" value="save" name="action" class="btn btn-success" style="width: 200px; padding-top: 10px;">Save</button> --}}
 
-								  <button type="submit" value="submit" name="action" class="btn btn-primary" style="width: 200px; padding-top: 10px;">Submit</button>
+								  {!! draft_button() !!}
+
+								  {{-- <button type="submit" value="submit" name="action" class="btn btn-primary" style="width: 200px; padding-top: 10px;">Submit</button> --}}
+
+								  {!! order_button() !!}
 								</div>
 							</div>
 						</div>

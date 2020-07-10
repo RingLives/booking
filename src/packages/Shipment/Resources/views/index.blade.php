@@ -73,9 +73,13 @@
 									<td>{!! isset($shipment->status)?$shipment->status:'' !!}</td>
 
 									<td>
-										<a class="btn btn-success" href="{{route('shipment.edit',$shipment->shipment_no)}}">View</a>
+										{!! button('btn-success', route('shipment.edit',$shipment->shipment_no), "fa fa-eye") !!}
 
-										<a class="btn btn-danger" href="{{route('shipment.destroy',$shipment->id)}}">Delete</a>
+										{!! button('btn-danger', route('shipment.destroy',$shipment->id), "fa fa-trash") !!}
+
+										{{-- <a class="btn btn-success" href="{{route('shipment.edit',$shipment->shipment_no)}}">View</a> --}}
+
+										{{-- <a class="btn btn-danger" href="{{route('shipment.destroy',$shipment->id)}}">Delete</a> --}}
 									</td>
 								</tr>
 							@endforeach

@@ -55,7 +55,7 @@ class ExcelController extends Controller
 					}
 				}
       }else{
-      	$this->error = "Unknown Extention";
+      	$this->error = "Unknown Extention, availabe extention is ". implode(', ', $this->extension);
       }
     }else{
     	$this->error = "File not exit";
@@ -65,7 +65,7 @@ class ExcelController extends Controller
     	return redirect()->back()->withError($this->error);
     }
 
-    return redirect()->route('booking.create')->with("excel_data",$this->collection)->withSuccess('Excel data upload successfully. Please save or submit unless the data is remove.');
+    return redirect()->route('booking.create')->with("excel_data",$this->collection)->withSuccess('Excel data upload successfully. Please save or submit until the data is removed.');
 	}
 
 	/**

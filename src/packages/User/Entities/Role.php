@@ -2,9 +2,9 @@
 
 namespace Modules\User\Entities;
 
-use Cartalyst\Sentinel\Roles\EloquentRole;
+use Modules\Core\Eloquent\Model;
 
-class Role extends EloquentRole
+class Role extends Model
 {
     /**
      * The relations to eager load on every query.
